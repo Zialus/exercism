@@ -1,13 +1,18 @@
-class Year {
+struct Year {
     var calendarYear: Int
 
-    init(calendarYear: Int) {
-        self.calendarYear = calendarYear
-    }
-
     var isLeapYear: Bool {
-        if calendarYear % 4 != 0 { return false }
-        if calendarYear % 400 == 0 { return true }
-        return (calendarYear % 100 != 0)
+
+        let answer: Bool
+
+        if calendarYear % 4 != 0 {
+            answer = false
+        } else if calendarYear % 400 == 0 {
+            answer = true
+        } else {
+            answer = (calendarYear % 100 != 0)
+        }
+
+        return answer
     }
 }
