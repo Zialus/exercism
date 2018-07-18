@@ -11,10 +11,7 @@ bool is_isogram(const char phrase[])
 
     bool alphabet[ALPHABET_SIZE];
 
-    for (int i = 0; i < ALPHABET_SIZE; ++i)
-    {
-        alphabet[i] = false;
-    }
+    memset(alphabet, false, sizeof(bool) * ALPHABET_SIZE);
 
     int length = strlen(phrase);
     for (int i = 0; i < length; ++i)
@@ -28,9 +25,9 @@ bool is_isogram(const char phrase[])
 
         if (alphabet[char_code] == true) { // char has already appeared
             return false;
-        } else {
-            alphabet[char_code] = true; // set char as seen
         }
+
+        alphabet[char_code] = true; // set char as seen
 
     }
     return true;
