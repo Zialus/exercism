@@ -4,22 +4,23 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-#define MAX_SIZE 10000
-
 char *abbreviate(const char *phrase){
 
-    if (phrase == NULL || strncmp(phrase,"",1) == 0 || strlen(phrase) >= MAX_SIZE)
+    if (phrase == NULL || strncmp(phrase,"",1) == 0)
     {
-        return NULL; // return NULL if input string is null, empty, or too big
+        return NULL; // return NULL if input string is null or empty
     }
 
-    char s[MAX_SIZE];
-    char* acronym = (char*) malloc(sizeof(char)*MAX_SIZE);
+    int SIZE = strlen(phrase) + 1;
+
+    char* s = (char*) malloc(sizeof(char)*SIZE);
     strcpy(s, phrase);
     // printf("Initial String: %s\n", s);
     char* token_list = " -,:";
     char* token = strtok(s, token_list);
 
+
+    char* acronym = (char*) malloc(sizeof(char)*SIZE);
     int idx = 0;
     while (token)
     {
@@ -30,7 +31,7 @@ char *abbreviate(const char *phrase){
         idx++;
     }
     acronym[idx] = '\0'; // Add string terminator at the final position
-    
+    free(s);
     // printf("Final String: %s\n", acronym);
     return acronym;
 
