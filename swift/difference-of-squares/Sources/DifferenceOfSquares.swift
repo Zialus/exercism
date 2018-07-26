@@ -8,12 +8,11 @@ class Squares {
     }
 
     var squareOfSums: Decimal {
-        var tmp: Int = 0
+        var tmp = 0
         for num in 1...upTo {
             tmp += num
         }
-        let result = pow(Decimal(tmp), 2)
-        return result
+        return pow(Decimal(tmp), 2)
     }
 
     var sumOfSquares: Decimal {
@@ -25,6 +24,6 @@ class Squares {
     }
 
     var differenceOfSquares: Decimal {
-        return self.squareOfSums - self.sumOfSquares
+        return squareOfSums - sumOfSquares
     }
 }
