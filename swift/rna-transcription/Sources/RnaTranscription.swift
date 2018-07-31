@@ -25,16 +25,9 @@ class Nucleotide {
     let dnaStrand: [DnaNucleotide]
 
     init(_ dnaString: String) throws {
-        var dnaStrand: [DnaNucleotide] = []
-
-        do {
-            for nucleotide in dnaString {
-                guard let nuc = DnaNucleotide(rawValue: nucleotide) else {
-                    throw TranscriptionError.invalidNucleotide
-                }
-                dnaStrand.append(nuc)
-            }
-        }
+        let dnaStrand = dnaString.flatMap(DnaNucleotide.init(rawValue:))
+        // Make sure that all the strings got converted to Nucleotide, or throw error
+        if dnaStrand.count != dnaString.count { throw TranscriptionError.invalidNucleotide }
 
         self.dnaStrand = dnaStrand
     }
