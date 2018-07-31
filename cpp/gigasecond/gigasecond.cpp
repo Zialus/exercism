@@ -2,7 +2,7 @@
 
 namespace gigasecond {
 
-int GIGASECOND = std::pow(10, 9);
+const int GIGASECOND = std::pow(10, 9);
 
 ptime advance(ptime original) {
     ptime result = original + seconds(GIGASECOND);
