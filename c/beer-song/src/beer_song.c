@@ -2,41 +2,34 @@
 #include <assert.h>
 #include <ctype.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 #define BUFFER_SIZE 1024
 
-char* plural_vs_singular_bottle(const int bottle_amount) {
+void plural_vs_singular_bottle(const int bottle_amount, char* answer_buffer) {
     assert(bottle_amount >= 0);
 
-    char* answer = (char*) malloc(sizeof(char) * BUFFER_SIZE);
-
     if (bottle_amount > 1) {
-        snprintf(answer, BUFFER_SIZE, "%d bottles", bottle_amount);
+        snprintf(answer_buffer, BUFFER_SIZE, "%d bottles", bottle_amount);
     } else if (bottle_amount == 1) {
-        snprintf(answer, BUFFER_SIZE, "%d bottle", bottle_amount);
+        snprintf(answer_buffer, BUFFER_SIZE, "%d bottle", bottle_amount);
     } else { // bottle_amount = 0
-        snprintf(answer, BUFFER_SIZE, "no more bottles");
+        snprintf(answer_buffer, BUFFER_SIZE, "no more bottles");
     }
 
-    return answer;
 }
 
-char* buy_or_not(const int bottle_amount) {
+void buy_or_not(const int bottle_amount, char* answer_buffer) {
     assert(bottle_amount >= 0);
 
-    char* answer = (char*) malloc(sizeof(char) * BUFFER_SIZE);
-
     if (bottle_amount > 1) {
-        snprintf(answer, BUFFER_SIZE, "Take one down and pass it around,");
+        snprintf(answer_buffer, BUFFER_SIZE, "Take one down and pass it around,");
     } else if (bottle_amount == 1) {
-        snprintf(answer, BUFFER_SIZE, "Take it down and pass it around,");
+        snprintf(answer_buffer, BUFFER_SIZE, "Take it down and pass it around,");
     } else { // bottle_amount = 0
-        snprintf(answer, BUFFER_SIZE, "Go to the store and buy some more,");
+        snprintf(answer_buffer, BUFFER_SIZE, "Go to the store and buy some more,");
     }
 
-    return answer;
 }
 
 void verse(char* buffer, const int bottle_amount) {
@@ -51,12 +44,18 @@ void verse(char* buffer, const int bottle_amount) {
 
     const char first_component[] = "of beer on the wall,";
     const char second_component[] = "of beer.\n";
-    char* third_component = buy_or_not(bottle_amount);
+    char third_component[BUFFER_SIZE];
+    buy_or_not(bottle_amount, third_component);
     const char forth_component[] = "of beer on the wall.\n";
 
-    char* pre_bottle_amount = plural_vs_singular_bottle(bottle_amount);
-    char* post_bottle_amount = plural_vs_singular_bottle(bottle_amount_next);
-    char* pre_bottle_amount_Uppercase = strdup(pre_bottle_amount);
+    char pre_bottle_amount[BUFFER_SIZE];
+    plural_vs_singular_bottle(bottle_amount, pre_bottle_amount);
+
+    char post_bottle_amount[BUFFER_SIZE];
+    plural_vs_singular_bottle(bottle_amount_next, post_bottle_amount);
+
+    char pre_bottle_amount_Uppercase[BUFFER_SIZE];
+    strncpy(pre_bottle_amount_Uppercase, pre_bottle_amount, BUFFER_SIZE);
     pre_bottle_amount_Uppercase[0] = toupper(pre_bottle_amount_Uppercase[0]);
 
 
@@ -66,11 +65,6 @@ void verse(char* buffer, const int bottle_amount) {
              third_component,
              post_bottle_amount, forth_component);
 
-
-    free(pre_bottle_amount);
-    free(post_bottle_amount);
-    free(third_component);
-    free(pre_bottle_amount_Uppercase);
 
     return;
 }
