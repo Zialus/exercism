@@ -1,8 +1,8 @@
-func toLimit(_ upTo: Int, inMultiples: [Int]) -> Int {
+func toLimit(_ upTo: Int, inMultiples multiples: [Int]) -> Int {
 
     var sumCandidates = Set<Int>()
 
-    for number in inMultiples where number > 0 {
+    for number in multiples where number > 0 {
         var multiple = number
         // keep adding number to itself and keep track of its multiples
         while multiple < upTo {
