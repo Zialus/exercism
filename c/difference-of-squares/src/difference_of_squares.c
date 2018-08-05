@@ -1,22 +1,14 @@
 #include "difference_of_squares.h"
-#include <math.h>
 
 int square_of_sum(const int num) {
-    int result = 0;
-    for (int i = 1; i <= num; ++i) {
-        result += i;
-    }
-
-    return pow(result, 2);
+    // https://en.wikipedia.org/wiki/Arithmetic_progression#Sum
+    int tmp = (num * (num + 1)) / 2;
+    return tmp * tmp;
 }
 
 int sum_of_squares(const int num) {
-    int result = 0;
-    for (int i = 1; i <= num; ++i) {
-        result += pow(i, 2);
-    }
-
-    return result;
+    // https://en.wikipedia.org/wiki/Square_pyramidal_number#Formula
+    return (num * (num + 1) * (2 * num + 1)) / 6;
 }
 
 int difference_of_squares(const int num) {
