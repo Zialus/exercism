@@ -1,5 +1,5 @@
 enum TranscriptionError: Error {
-    case invalidNucleotide
+    case invalidNucleotide(message: String)
 }
 
 class Nucleotide {
@@ -25,9 +25,14 @@ class Nucleotide {
     let dnaStrand: [DnaNucleotide]
 
     init(_ dnaString: String) throws {
-        let dnaStrand = dnaString.flatMap(DnaNucleotide.init(rawValue:))
-        // Make sure that all the strings got converted to Nucleotide, or throw error
-        if dnaStrand.count != dnaString.count { throw TranscriptionError.invalidNucleotide }
+        var dnaStrand: [DnaNucleotide] = []
+
+        for maybeNucleotide in dnaString {
+            guard let nucleotide = DnaNucleotide(rawValue: maybeNucleotide) else {
+                throw TranscriptionError.invalidNucleotide(message: "\(maybeNucleotide) is not a valid Nucleotide")
+            }
+            dnaStrand.append(nucleotide)
+        }
 
         self.dnaStrand = dnaStrand
     }
