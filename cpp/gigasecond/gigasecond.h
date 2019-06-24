@@ -6,6 +6,6 @@ using namespace boost::posix_time;
 
 namespace gigasecond {
 
-ptime advance(ptime original);
+ptime advance(const ptime original);
 
 }
