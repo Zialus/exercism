@@ -21,7 +21,7 @@ describe('Transcriptor', () => {
 
   it('transcribes all dna nucleotides to their rna complements', () => {
     expect(transcriptor.toRna('ACGTGGTCTTAA'))
-        .toEqual('UGCACCAGAAUU')
+      .toEqual('UGCACCAGAAUU')
   })
 
   it('correctly handles invalid input', () => {
