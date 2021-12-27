@@ -8,6 +8,9 @@
 
 bool is_isogram(const char phrase[])
 {
+    if (phrase == NULL){
+        return false;
+    }
 
     bool alphabet[ALPHABET_SIZE];
 
