@@ -1,7 +1,3 @@
-class HelloWorld {
-    static hello(name: String = "World") {
-        return "Hello, " + name + "!"
-    }
+export function hello(name: String = "World"): string {
+  return "Hello, " + name + "!";
 }
-
-export default HelloWorld
