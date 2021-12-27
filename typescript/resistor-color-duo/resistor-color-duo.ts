@@ -1,16 +1,4 @@
-type possibleColors =
-  | "black"
-  | "brown"
-  | "red"
-  | "orange"
-  | "yellow"
-  | "green"
-  | "blue"
-  | "violet"
-  | "grey"
-  | "white";
-
-const COLORS_TO_VALUE_MAP: { [key in possibleColors]: number } = {
+const COLORS_TO_VALUE_MAP = {
   black: 0,
   brown: 1,
   red: 2,
@@ -23,7 +11,7 @@ const COLORS_TO_VALUE_MAP: { [key in possibleColors]: number } = {
   white: 9,
 };
 
-export function decodedValue(bandColors: possibleColors[]): number {
+export function decodedValue(bandColors: (keyof typeof COLORS_TO_VALUE_MAP)[]): number {
   let resistanceValue = 0;
   bandColors
     .slice(0, 2)
