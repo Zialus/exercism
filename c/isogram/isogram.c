@@ -6,7 +6,7 @@
 
 #define ALPHABET_SIZE 26
 
-bool is_isogram(const char phrase[]) {
+bool is_isogram(const char* const phrase) {
     if (phrase == NULL) {
         return false;
     }
@@ -16,7 +16,7 @@ bool is_isogram(const char phrase[]) {
     memset(alphabet, false, sizeof(bool) * ALPHABET_SIZE);
 
     int length = strlen(phrase);
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length; i++) {
         char lower_case_char = tolower(phrase[i]);
         int char_code = (int)lower_case_char - (int)'a';
 
