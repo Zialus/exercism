@@ -1,20 +1,19 @@
-class Transcriptor {
-  convertLetter(dnaLetter: string): string {
-    switch (dnaLetter) {
-      case "A": return "U";
-      case "C": return "G";
-      case "G": return "C";
-      case "T": return "A";
-    }
-
-    throw Error("Invalid input DNA.");
+function convertLetter(dnaLetter: string): string {
+  switch (dnaLetter) {
+    case "A": return "U";
+    case "C": return "G";
+    case "G": return "C";
+    case "T": return "A";
   }
 
-  toRna(dnaString: string): string {
-    const rnaString = dnaString.split('').map(letter => this.convertLetter(letter)).join('');
-    
-    return rnaString;
-  }
+  throw Error("Invalid input DNA.");
 }
 
-export default Transcriptor;
+export function toRna(dnaString: string): string {
+  const rnaString = dnaString
+    .split("")
+    .map((letter) => convertLetter(letter))
+    .join("");
+
+  return rnaString;
+}
