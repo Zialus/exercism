@@ -1,5 +1,5 @@
-#include "vendor/unity.h"
-#include "../src/two_fer.h"
+#include "test-framework/unity.h"
+#include "two_fer.h"
 #include <stddef.h>
 
 #define BUFFER_SIZE (100)
@@ -12,7 +12,7 @@ void tearDown(void)
 {
 }
 
-void test_two_fer_no_name_given(void)
+static void test_two_fer_no_name_given(void)
 {
    char response[BUFFER_SIZE];
    const char *expected = "One for you, one for me.";
@@ -20,7 +20,7 @@ void test_two_fer_no_name_given(void)
    TEST_ASSERT_EQUAL_STRING(expected, response);
 }
 
-void test_two_fer_a_name_given(void)
+static void test_two_fer_a_name_given(void)
 {
    char response[BUFFER_SIZE];
    const char *expected = "One for Alice, one for me.";
@@ -28,7 +28,7 @@ void test_two_fer_a_name_given(void)
    TEST_ASSERT_EQUAL_STRING(expected, response);
 }
 
-void test_two_fer_another_name_given(void)
+static void test_two_fer_another_name_given(void)
 {
    char response[BUFFER_SIZE];
    const char *expected = "One for Bob, one for me.";
@@ -38,12 +38,11 @@ void test_two_fer_another_name_given(void)
 
 int main(void)
 {
-   UnityBegin("test/test_two_fer.c");
+   UnityBegin("test_two_fer.c");
 
    RUN_TEST(test_two_fer_no_name_given);
    RUN_TEST(test_two_fer_a_name_given);
    RUN_TEST(test_two_fer_another_name_given);
 
-   UnityEnd();
-   return 0;
+   return UnityEnd();
 }
