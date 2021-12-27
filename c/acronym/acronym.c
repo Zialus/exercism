@@ -16,7 +16,7 @@ char *abbreviate(const char *phrase){
     char* s = (char*) malloc(sizeof(char)*SIZE);
     strcpy(s, phrase);
     // printf("Initial String: %s\n", s);
-    char* token_list = " -,:";
+    char* token_list = " _-,:";
     char* token = strtok(s, token_list);
 
 

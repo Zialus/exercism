@@ -1,0 +1,30 @@
+{
+  "blurb": "Convert a long phrase to its acronym",
+  "authors": [
+    "wolf99"
+  ],
+  "contributors": [
+    "bcc32",
+    "Gamecock",
+    "h-3-0",
+    "kgashok",
+    "patricksjackson",
+    "QLaille",
+    "ryanplusplus",
+    "sesamemucho"
+  ],
+  "files": {
+    "solution": [
+      "acronym.c",
+      "acronym.h"
+    ],
+    "test": [
+      "test_acronym.c"
+    ],
+    "example": [
+      ".meta/example.c"
+    ]
+  },
+  "source": "Julien Vanier",
+  "source_url": "https://github.com/monkbroc"
+}
