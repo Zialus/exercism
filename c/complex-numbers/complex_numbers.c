@@ -40,7 +40,7 @@ double c_abs(complex_t x) {
 }
 
 complex_t c_conjugate(complex_t x) {
-    complex_t solution = {.real = x.real, .imag = - x.imag};
+    complex_t solution = {.real = x.real, .imag = -x.imag};
 
     return solution;
 }

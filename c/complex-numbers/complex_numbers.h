@@ -1,9 +1,9 @@
-#ifndef _COMPLEX_NUMBERS_H_
-#define _COMPLEX_NUMBERS_H_
+#ifndef COMPLEX_NUMBERS_H
+#define COMPLEX_NUMBERS_H
 
 typedef struct {
-   double real;
-   double imag;
+    double real;
+    double imag;
 } complex_t;
 
 complex_t c_add(complex_t a, complex_t b);
