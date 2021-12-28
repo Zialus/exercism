@@ -1,10 +1,10 @@
 #include "two_fer.h"
 #include <stdio.h>
 
-void two_fer(char* buffer, const char* name) {
-    if (name == NULL) {
-        name = "you";
-    }
+#define BUFFER_SIZE 100
 
-    sprintf(buffer, "One for %s, one for me.", name);
+void two_fer(char* const buffer, const char* const name) {
+    const char* const name_to_print = name ? name : "you";
+
+    snprintf(buffer, BUFFER_SIZE, "One for %s, one for me.", name_to_print);
 }
