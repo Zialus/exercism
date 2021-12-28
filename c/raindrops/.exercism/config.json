@@ -1,0 +1,38 @@
+{
+  "blurb": "Convert a number to a string, the content of which depends on the number's factors.",
+  "authors": [
+    "sunzenshen"
+  ],
+  "contributors": [
+    "bcc32",
+    "Gamecock",
+    "gea-migration",
+    "h-3-0",
+    "hintjens",
+    "JacobMikkelsen",
+    "kytrinyx",
+    "lpil",
+    "mindejulian",
+    "patricksjackson",
+    "QLaille",
+    "RealBarrettBrown",
+    "ryanplusplus",
+    "siebenschlaefer",
+    "wolf99"
+  ],
+  "files": {
+    "solution": [
+      "raindrops.c",
+      "raindrops.h"
+    ],
+    "test": [
+      "test_raindrops.c"
+    ],
+    "example": [
+      ".meta/example.c",
+      ".meta/example.h"
+    ]
+  },
+  "source": "A variation on FizzBuzz, a famous technical interview question that is intended to weed out potential candidates. That question is itself derived from Fizz Buzz, a popular children's game for teaching division.",
+  "source_url": "https://en.wikipedia.org/wiki/Fizz_buzz"
+}
