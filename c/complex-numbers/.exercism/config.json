@@ -1,0 +1,26 @@
+{
+  "blurb": "Implement complex numbers.",
+  "authors": [],
+  "contributors": [
+    "h-3-0",
+    "patricksjackson",
+    "QLaille",
+    "ryanplusplus",
+    "sjwarner",
+    "wolf99"
+  ],
+  "files": {
+    "solution": [
+      "complex_numbers.c",
+      "complex_numbers.h"
+    ],
+    "test": [
+      "test_complex_numbers.c"
+    ],
+    "example": [
+      ".meta/example.c"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Complex_number"
+}

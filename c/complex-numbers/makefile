@@ -1,28 +1,38 @@
+### If you wish to use extra libraries (math.h for instance),
+### add their flags here (-lm in our case) in the "LIBS" variable.
+
+LIBS = -lm
+
+###
 CFLAGS  = -std=c99
 CFLAGS += -g
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -pedantic
 CFLAGS += -Werror
-CFLAGS += -DUNITY_FLOAT_TYPE=double
+CFLAGS += -Wmissing-declarations
+CFLAGS += -DUNITY_SUPPORT_64
+CFLAGS += -DUNITY_INCLUDE_DOUBLE
 
-VFLAGS  = --quiet
-VFLAGS += --tool=memcheck
-VFLAGS += --leak-check=full
-VFLAGS += --error-exitcode=1
+ASANFLAGS  = -fsanitize=address
+ASANFLAGS += -fno-common
+ASANFLAGS += -fno-omit-frame-pointer
 
-LDFLAGS  = -lm
-
+.PHONY: test
 test: tests.out
 	@./tests.out
 
-memcheck: tests.out
-	@valgrind $(VFLAGS) ./tests.out
+.PHONY: memcheck
+memcheck: ./*.c ./*.h
+	@echo Compiling $@
+	@$(CC) $(ASANFLAGS) $(CFLAGS) test-framework/unity.c ./*.c -o memcheck.out $(LIBS)
+	@./memcheck.out
 	@echo "Memory check passed"
 
+.PHONY: clean
 clean:
 	rm -rf *.o *.out *.out.dSYM
 
-tests.out: test/test_complex_numbers.c src/complex_numbers.c src/complex_numbers.h
+tests.out: ./*.c ./*.h
 	@echo Compiling $@
-	@$(CC) $(CFLAGS) src/complex_numbers.c test/vendor/unity.c test/test_complex_numbers.c $(LDFLAGS) -o tests.out
+	@$(CC) $(CFLAGS) test-framework/unity.c ./*.c -o tests.out $(LIBS)
