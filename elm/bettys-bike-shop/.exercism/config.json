@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "ceddlyburge",
+    "mpizenberg"
+  ],
+  "contributors": [
+    "jiegillet"
+  ],
+  "files": {
+    "solution": [
+      "src/BettysBikeShop.elm"
+    ],
+    "test": [
+      "tests/Tests.elm"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.elm"
+    ]
+  },
+  "blurb": "Continue learning the basics of Elm by helping Betty to display her bikes prices"
+}
