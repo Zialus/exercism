@@ -1,0 +1,22 @@
+{
+  "authors": [
+    "mpizenberg",
+    "ceddlyburge"
+  ],
+  "files": {
+    "solution": [
+      "src/LuciansLusciousLasagna.elm"
+    ],
+    "test": [
+      "tests/Tests.elm"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.elm"
+    ]
+  },
+  "forked_from": [
+    "fsharp/lucians-luscious-lasagna"
+  ],
+  "icon": "lasagna",
+  "blurb": "Learn the basics of Elm by cooking Lucian's Luscious Lasagna"
+}
